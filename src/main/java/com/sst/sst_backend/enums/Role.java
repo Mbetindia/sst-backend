@@ -1,8 +1,7 @@
 package com.sst.sst_backend.enums;
 
-
 public enum Role {
-    ADMIN,
+    STUDENT,
     TEACHER,
-    STUDENT
+    ADMIN
 }
