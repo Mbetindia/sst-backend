@@ -3,7 +3,10 @@ package com.sst.sst_backend.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-public class LoginRequest {
+public class StudentLoginRequest {
+
+    @NotBlank(message = "Student name is required")
+    private String name;
 
     @Email(message = "Enter valid email")
     @NotBlank(message = "Email is required")
@@ -12,13 +15,27 @@ public class LoginRequest {
     @NotBlank(message = "Password is required")
     private String password;
 
-    public LoginRequest() {
+    @NotBlank(message = "Class is required")
+    private String className;
+
+    public StudentLoginRequest() {
     }
 
-    public LoginRequest(String email, String password) {
+    public StudentLoginRequest(String name, String email, String password, String className) {
+        this.name = name;
         this.email = email;
         this.password = password;
+        this.className = className;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public String getEmail() {
         return email;
@@ -35,5 +52,14 @@ public class LoginRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }
